@@ -62,44 +62,31 @@ public class Atraccion {
 
 
 	public String getNombre() {
-		return nombre;
+		return nombre; 
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	public double getCosto() {
 		return costo;
 	}
 
-	public void setCosto(double costo) {
-		this.costo = costo;
-	}
+
 
 	public double getDuracion() {
 		return duracion;
 	}
 
-	public void setDuracion(double duracion) {
-		this.duracion = duracion;
-	}
 
 	public Tipo getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
-	}
+
 
 	public int getCupo() {
 		return cupo;
 	}
 
-	public void setCupo(int cupo) {
-		this.cupo = cupo;
-	}
 	
 	
 }

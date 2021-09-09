@@ -2,24 +2,29 @@ package TierraMedia;
 
 import java.util.Comparator;
 
-public class ComparadorPorCostoYTiempo implements Comparator<Atraccion>{
+public class ComparadorPorCostoYTiempo implements Comparator<Atraccion> {
 
 	@Override
 	public int compare(Atraccion a1, Atraccion a2) {
+
+		int comparacion = 0;
+
+		if (a1.getCosto() > a2.getCosto()) {
+			if(a1.getDuracion() > a2.getDuracion()) {
+				comparacion = 1;
+			}else if(a1.getDuracion() < a2.getDuracion()) {
+				comparacion = -1;
+			}
 		
-		if(a1.getCosto() > a2.getCosto()) {
-			return -1;
 		}else if(a1.getCosto() < a2.getCosto()) {
-			return 1;
+			if(a1.getDuracion() > a2.getDuracion()) {
+				comparacion = 1;
+			}else if(a1.getDuracion() < a2.getDuracion()) {
+				comparacion = -1;
+			}
 		}
-		
-		if(a1.getDuracion() > a2.getDuracion()) {
-			return -1;
-		}else if(a1.getDuracion() < a2.getDuracion()) {
-			return 1;
-		}
-		return 0;
+			return comparacion; 
+				
 	}
 
-	
 }

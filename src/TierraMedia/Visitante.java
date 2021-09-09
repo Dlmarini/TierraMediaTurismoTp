@@ -20,29 +20,25 @@ public class Visitante {
 	}
 
 	
+	public void aceptarSugerencia(LinkedList<Atraccion> unaAtraccion) {
+		if(unaAtraccion.get)
+	}
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	
 
 	public double getMonedas() {
 		return monedas;
 	}
 
-	public void setMonedas(double monedas) {
-		this.monedas = monedas;
-	}
 
 	public double getTiempo() {
-		return tiempo;
+		return tiempo; 
 	}
 
-	public void setTiempo(double tiempo) {
-		this.tiempo = tiempo;
-	}
+	
 
 	public Tipo getPreferencia() {
 		return preferencia;
@@ -57,6 +53,7 @@ public class Visitante {
 	}
 
 	public void setItinerario(Atraccion unaAtraccion) {
+		
 		this.itinerario.add(unaAtraccion);
 	}
 
