@@ -3,6 +3,7 @@ package TierraMedia;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -37,8 +38,8 @@ public class TierraMediaTurismoTpTests {
 		System.out.println(unaSugerencia.getListaOrdenada().toString());
 	}  */
 
-	@Test
-	public void queFuncionaComparador() throws FileNotFoundException  {
+//	@Test
+/*	public void queFuncionaComparador() throws FileNotFoundException  {
 		
 		LectorDeArchivo unArchivo = new LectorDeArchivo("visitantes.txt", "atracciones.txt");
 		
@@ -47,5 +48,13 @@ public class TierraMediaTurismoTpTests {
 		Collections.sort(listaAux, new ComparadorPorCostoYTiempo());
 		
 		System.out.println(listaAux.toString());
-	} 
+	}*/
+	
+	@Test 
+	public void queTrataExcepcionesArchivoEnLecturaDeArchivo() throws NumberFormatException, FileNotFoundException {
+		LectorDeArchivo unArchivo = new LectorDeArchivo("visitantes.txt", "atracciones.txt");
+		
+		System.out.println(unArchivo.getListaVisitantes().toString());
+	}
+	
 }

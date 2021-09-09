@@ -2,6 +2,7 @@ package TierraMedia;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -16,26 +17,44 @@ public class LectorDeArchivo {
 		this.listaAtracciones = generarListaAtracciones(atracciones);
 	}
 
-	private LinkedList<Visitante> generarListaVisitantes(String visitantes) throws FileNotFoundException {
+	private LinkedList<Visitante> generarListaVisitantes(String visitantes) {
 
 		LinkedList<Visitante> listaAux = new LinkedList<Visitante>();
-		Scanner sc = new Scanner(new File(visitantes));
+		File visitanteFile = null;
 
-		while (sc.hasNext()) {
-			String linea = sc.nextLine();
-			String datos[] = linea.split(" ");
+		try {
 
-			String nombre = datos[0];
-			double monedas = Double.parseDouble(datos[1]);
-			double tiempo = Double.parseDouble(datos[2]);
-			Tipo tipo = Tipo.valueOf(datos[3]);
+			visitanteFile = new File(visitantes);
 
-			Visitante unVisitante = new Visitante(nombre, monedas, tiempo, tipo);
+			Scanner sc = new Scanner(visitanteFile);
 
-			listaAux.add(unVisitante);
+			while (sc.hasNext()) {
+				String linea = sc.nextLine();
+				String datos[] = linea.split(" ");
 
+				try {
+					String nombre = datos[0];
+					double monedas = Double.parseDouble(datos[1]);
+					double tiempo = Double.parseDouble(datos[2]);
+					Tipo tipo = Tipo.valueOf(datos[3]);
+
+					Visitante unVisitante = new Visitante(nombre, monedas, tiempo, tipo);
+
+					listaAux.add(unVisitante);
+
+				} catch (NumberFormatException nf) {
+					System.err.println("Algun dato de el archivo visitantes.txt es incorrecto ");
+				}catch (ArrayIndexOutOfBoundsException aiobe) { 
+					System.err.println("Falta de dato en archivo visitantes.txt es incorrecto ");
+				}
+
+			}
+
+			sc.close();
+
+		} catch (IOException ioe) {
+			System.err.println("El archivo "+ visitantes+" o no se encuentra en la ruta especificada");
 		}
-		sc.close();
 
 		return listaAux;
 	}
@@ -43,34 +62,41 @@ public class LectorDeArchivo {
 	private LinkedList<Atraccion> generarListaAtracciones(String atracciones) throws FileNotFoundException {
 
 		LinkedList<Atraccion> listaAux = new LinkedList<Atraccion>();
-		Scanner sc = new Scanner(new File(atracciones));
+		File atraccionFile = null;
 
-		while (sc.hasNext()) {
-			String linea = sc.nextLine();
-			String datos[] = linea.split(" ");
+		try {
+			atraccionFile = new File(atracciones);
 
-			String nombre = datos[0];
-			double costo = Double.parseDouble(datos[1]);
-			double duracion = Double.parseDouble(datos[2]);
-			Tipo tipo = Tipo.valueOf(datos[3]);
-			int cupo = Integer.parseInt(datos[4]);
+			Scanner sc = new Scanner(atraccionFile);
 
-			Atraccion unAtraccion = new Atraccion(nombre, costo, duracion, tipo, cupo);
+			while (sc.hasNext()) {
+				String linea = sc.nextLine();
+				String datos[] = linea.split(" ");
 
-			listaAux.add(unAtraccion);
+				String nombre = datos[0];
+				double costo = Double.parseDouble(datos[1]);
+				double duracion = Double.parseDouble(datos[2]);
+				Tipo tipo = Tipo.valueOf(datos[3]);
+				int cupo = Integer.parseInt(datos[4]);
 
+				Atraccion unAtraccion = new Atraccion(nombre, costo, duracion, tipo, cupo);
+
+				listaAux.add(unAtraccion);
+			}
+
+			sc.close();
+
+		} catch (IOException ioe) {
+			System.err.println("El archivo "+atracciones+" o no se encuentra en la ruta especificada");
 		}
-		sc.close();
-
 		return listaAux;
+
 	}
 
-	
 	public LinkedList<Atraccion> getListaAtracciones() {
 		return listaAtracciones;
 	}
 
-	
 	public LinkedList<Visitante> getListaVisitantes() {
 		return listaVisitantes;
 	}

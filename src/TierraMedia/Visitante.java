@@ -21,7 +21,7 @@ public class Visitante {
 
 	
 	public void aceptarSugerencia(LinkedList<Atraccion> unaAtraccion) {
-		if(unaAtraccion.get)
+	
 	}
 	public String getNombre() {
 		return nombre;
