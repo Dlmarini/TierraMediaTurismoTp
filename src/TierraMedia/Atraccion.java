@@ -18,8 +18,11 @@ public class Atraccion {
 		this.tipo = tipo;
 		this.cupo = cupo; 
 		
-	}
+	} 
 
+	public Atraccion() {
+		
+	}
 	
 	
 	

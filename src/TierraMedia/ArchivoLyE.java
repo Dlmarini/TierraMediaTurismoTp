@@ -6,17 +6,19 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class LectorDeArchivo {
+public class ArchivoLyE {
 
 	private LinkedList<Visitante> listaVisitantes;
 	private LinkedList<Atraccion> listaAtracciones;
 
-	public LectorDeArchivo(String visitantes, String atracciones) throws FileNotFoundException {
+	public ArchivoLyE(String visitantes, String atracciones) throws FileNotFoundException {
 
 		this.listaVisitantes = generarListaVisitantes(visitantes);
 		this.listaAtracciones = generarListaAtracciones(atracciones);
 	}
 
+	
+	
 	private LinkedList<Visitante> generarListaVisitantes(String visitantes) {
 
 		LinkedList<Visitante> listaAux = new LinkedList<Visitante>();
@@ -43,9 +45,9 @@ public class LectorDeArchivo {
 					listaAux.add(unVisitante);
 
 				} catch (NumberFormatException nf) {
-					System.err.println("Algun dato de el archivo visitantes.txt es incorrecto ");
-				}catch (ArrayIndexOutOfBoundsException aiobe) { 
-					System.err.println("Falta de dato en archivo visitantes.txt es incorrecto ");
+					System.err.println("Algun dato de el archivo" + visitantes + " es incorrecto ");
+				} catch (ArrayIndexOutOfBoundsException aiobe) {
+					System.err.println("Falta de dato en archivo" + visitantes);
 				}
 
 			}
@@ -53,12 +55,15 @@ public class LectorDeArchivo {
 			sc.close();
 
 		} catch (IOException ioe) {
-			System.err.println("El archivo "+ visitantes+" o no se encuentra en la ruta especificada");
+			System.err.println("El archivo " + visitantes + " o no se encuentra en la ruta especificada");
 		}
 
 		return listaAux;
 	}
 
+	
+	
+	
 	private LinkedList<Atraccion> generarListaAtracciones(String atracciones) throws FileNotFoundException {
 
 		LinkedList<Atraccion> listaAux = new LinkedList<Atraccion>();
@@ -87,12 +92,14 @@ public class LectorDeArchivo {
 			sc.close();
 
 		} catch (IOException ioe) {
-			System.err.println("El archivo "+atracciones+" o no se encuentra en la ruta especificada");
+			System.err.println("El archivo " + atracciones + " o no se encuentra en la ruta especificada");
 		}
 		return listaAux;
 
 	}
 
+	
+	
 	public LinkedList<Atraccion> getListaAtracciones() {
 		return listaAtracciones;
 	}
