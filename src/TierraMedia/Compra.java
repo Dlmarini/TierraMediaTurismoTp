@@ -43,5 +43,15 @@ public class Compra {
 		return unVisitante;
 	}
 
+
+	public double getCostoTotal() {
+		return costoTotal;
+	}
+
+
+	public double getTiempoTotal() {
+		return tiempoTotal;
+	}
+
 	
 }

@@ -8,9 +8,12 @@ import java.util.Scanner;
 
 public class AppTierraMedia {
 
+	//   https://github.com/Dlmarini/TierraMediaTurismoTp
+	
+	
 	public static void main(String[] args) throws Throwable {
 
-		ArchivoLyE archivos = new ArchivoLyE("visitantes.txt", "atracciones.txt");
+		ArchivoLyE archivos = new ArchivoLyE("visitantes.txt", "atracciones.txt"/*,"promociones.txt"*/);
 
 		Sugerencia unaSugerencia = null;
 
@@ -48,6 +51,7 @@ public class AppTierraMedia {
 			sc.close();
 		}
 		
+		System.out.println("*********El sistema Tierra Media Turismo ha finalizado**********");
 	}
 
 }

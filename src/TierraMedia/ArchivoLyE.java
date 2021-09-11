@@ -12,13 +12,17 @@ public class ArchivoLyE {
 
 	private LinkedList<Visitante> listaVisitantes;
 	private LinkedList<Atraccion> listaAtracciones;
-
-	public ArchivoLyE(String visitantes, String atracciones) throws Throwable {
+ //   private LinkedList<Promocion> listaPromociones;
+    
+	public ArchivoLyE(String visitantes, String atracciones/*,String promociones*/) throws Throwable {
 
 		this.listaVisitantes = generarListaVisitantes(visitantes);
 		this.listaAtracciones = generarListaAtracciones(atracciones);
+//		this.listaPromociones = generarListaPromociones(promociones);
 	}
 
+	
+	
 	private LinkedList<Visitante> generarListaVisitantes(String visitantes) {
 
 		LinkedList<Visitante> listaAux = new LinkedList<Visitante>();
@@ -58,6 +62,8 @@ public class ArchivoLyE {
 		return listaAux;
 	}
 
+	
+	
 	private LinkedList<Atraccion> generarListaAtracciones(String atracciones) {
 
 		LinkedList<Atraccion> listaAux = new LinkedList<Atraccion>();
@@ -103,7 +109,6 @@ public class ArchivoLyE {
 	public void escribirArchivoDeSalida(Compra unaCompra) throws IOException {
 
 		PrintWriter salida = new PrintWriter(new FileWriter(unaCompra.getUnVisitante().getNombre() + ".out"));
-		salida.println(unaCompra.getUnVisitante().toString());
 		salida.println(unaCompra.toString());
 		salida.close();
 	}
@@ -115,4 +120,8 @@ public class ArchivoLyE {
 	public LinkedList<Visitante> getListaVisitantes() {
 		return listaVisitantes;
 	}
+	
+/*	public LinkedList<Promocion> getListaPromociones(){
+		return listaPromociones;
+	} */ 
 }

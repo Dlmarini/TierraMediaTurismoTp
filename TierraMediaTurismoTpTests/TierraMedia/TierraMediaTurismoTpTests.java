@@ -20,17 +20,17 @@ public class TierraMediaTurismoTpTests {
 		assertNotNull(unVisitante);
 		assertNotNull(unaAtraccion);
 	}
-/*
+
 	@Test
-	public void queLevantaCorrectamenteArchivosTest() throws FileNotFoundException {
+	public void queLevantaCorrectamenteArchivosTest() throws Throwable {
 		
 		ArchivoLyE unArchivoL = new ArchivoLyE("visitantes.txt", "atracciones.txt");
 		
 		System.out.println(unArchivoL.getListaVisitantes().toString());
 		System.out.println(unArchivoL.getListaAtracciones().toString());
 	}
-	*/
-/*
+	
+
 	@Test
 	public void queGeneraSugerenciasOrdenadas() throws Throwable {
 		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
@@ -38,7 +38,7 @@ public class TierraMediaTurismoTpTests {
 		
 		System.out.println(unaSugerencia.getListaOrdenada().toString());
 	}  
-/
+
 	@Test
 	public void queFuncionaComparador()  throws Throwable {
 		
@@ -49,22 +49,15 @@ public class TierraMediaTurismoTpTests {
 		Collections.sort(listaAux, new ComparadorPorCostoYTiempo());
 		
 		System.out.println(listaAux.toString());
-	}*/
-	/*
-	@Test 
+	}
+	
+	@Test //Probar con archivos erroneos o inexistentes
 	public void queTrataExcepcionesArchivoEnLecturaDeArchivo() throws Throwable  {
 		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
 		
 		System.out.println(unArchivo.getListaVisitantes().toString());
 	}
-/*	
-	@Test 
-	public void queGeneraListaOrdenadaCorrectamente() throws NumberFormatException, FileNotFoundException {
-		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
-		Sugerencia unaSugerencia = new Sugerencia(unVisitante, unArchivo.getListaAtracciones());
-		
-		System.out.println(unaSugerencia.getListaOrdenada().toString()); 
-	}
+
 	
 	@Test
 	public void queGeneraResumenDeCompraCorrectamente() {
@@ -78,8 +71,8 @@ public class TierraMediaTurismoTpTests {
 		unVisitante.setItinerario(a2);
 		unVisitante.setItinerario(a3);
 		
-		Sugerencia s = new Sugerencia(unVisitante, unVisitante.getItinerario());
-		
-		assertEquals(18,s.imprimirItinerarioDetallado(unVisitante),0.001 );
-	}*/
+		Compra c = new Compra(unVisitante);
+		assertEquals(10, c.getCostoTotal(),0.001);
+		assertEquals(8, c.getTiempoTotal(), 0.001);
+	}
 }
