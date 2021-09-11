@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 
+
 import org.junit.Test;
 
-public class TierraMediaTurismoTpTests {
-
+public class TierraMediaTurismoTpTests { 
+	
+	
 	Visitante unVisitante = new Visitante("Eowyn", 10, 8, Tipo.AVENTURA);
 	Atraccion unaAtraccion = new Atraccion("Moria", 10, 2, Tipo.AVENTURA, 6);
 

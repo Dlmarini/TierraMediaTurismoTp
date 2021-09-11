@@ -17,6 +17,8 @@ public class AppTierraMedia {
 
 		Sugerencia unaSugerencia = null;
 
+		System.out.println("***********TIERRA MEDIA TURISMO***************\n\n");
+		
 		for (Visitante v : archivos.getListaVisitantes()) {
 
 			unaSugerencia = new Sugerencia(v, archivos.getListaAtracciones());
@@ -32,7 +34,7 @@ public class AppTierraMedia {
 
 				if (!v.getItinerario().contains(a) && condicionVisitante && condicionAtraccion) {
 
-					System.out.println("\nSugerencia para " + v.getNombre() + "\n" + a.toString() + "");
+					System.out.println("Sugerencia para " + v.getNombre()+"-->" + " Monedas: "+v.getMonedas()+"Tiempo: "+v.getTiempo()+"\n"+ a.toString());
 					System.out.println("Acepta sugerencia ??? (1-S / 0-N)");
 
 					opcion = sc.nextInt();
