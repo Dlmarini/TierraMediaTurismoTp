@@ -27,6 +27,7 @@ public class Visitante {
 		
 	}
 	
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -34,7 +35,7 @@ public class Visitante {
 	
 
 	public double getMonedas() {
-		return monedas;
+		return monedas; 
 	}
 
 

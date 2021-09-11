@@ -1,0 +1,9 @@
+Visitante [nombre=Sam, monedas=30.0, tiempo=1.0, preferencia=DEGUSTACION]
+
+Visitante [nombre=Sam, monedas=30.0, tiempo=1.0, preferencia=DEGUSTACION]
+
+[Atraccion [nombre=LaComarca, costo=3.0, duracion=3.0, tipo=DEGUSTACION, cupo=148]
+, Atraccion [nombre=BosqueNegro, costo=3.0, duracion=4.0, tipo=AVENTURA, cupo=10]
+]
+Costo Final: 6.0
+Tiempo requerido: 7.0

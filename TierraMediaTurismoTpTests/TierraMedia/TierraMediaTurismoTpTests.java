@@ -30,17 +30,17 @@ public class TierraMediaTurismoTpTests {
 		System.out.println(unArchivoL.getListaAtracciones().toString());
 	}
 	*/
-
+/*
 	@Test
-	public void queGeneraSugerenciasOrdenadas() throws FileNotFoundException {
+	public void queGeneraSugerenciasOrdenadas() throws Throwable {
 		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
 		Sugerencia unaSugerencia = new Sugerencia(unVisitante,unArchivo.getListaAtracciones());
 		
 		System.out.println(unaSugerencia.getListaOrdenada().toString());
 	}  
-/*
+/
 	@Test
-	public void queFuncionaComparador() throws FileNotFoundException  {
+	public void queFuncionaComparador()  throws Throwable {
 		
 		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
 		
@@ -49,15 +49,15 @@ public class TierraMediaTurismoTpTests {
 		Collections.sort(listaAux, new ComparadorPorCostoYTiempo());
 		
 		System.out.println(listaAux.toString());
-	}
-	
-	@Test //(expected = Exception.class)
-	public void queTrataExcepcionesArchivoEnLecturaDeArchivo() throws NumberFormatException, FileNotFoundException {
+	}*/
+	/*
+	@Test 
+	public void queTrataExcepcionesArchivoEnLecturaDeArchivo() throws Throwable  {
 		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
 		
 		System.out.println(unArchivo.getListaVisitantes().toString());
 	}
-	
+/*	
 	@Test 
 	public void queGeneraListaOrdenadaCorrectamente() throws NumberFormatException, FileNotFoundException {
 		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
@@ -65,5 +65,21 @@ public class TierraMediaTurismoTpTests {
 		
 		System.out.println(unaSugerencia.getListaOrdenada().toString()); 
 	}
-	*/
+	
+	@Test
+	public void queGeneraResumenDeCompraCorrectamente() {
+	
+		Atraccion a1 = new Atraccion("a1", 2, 1, Tipo.AVENTURA, 6);
+		Atraccion a2 = new Atraccion("a2", 3, 2, Tipo.AVENTURA, 5);
+		Atraccion a3 = new Atraccion("a3", 5, 5, Tipo.AVENTURA, 10);
+		
+		
+		unVisitante.setItinerario(a1);
+		unVisitante.setItinerario(a2);
+		unVisitante.setItinerario(a3);
+		
+		Sugerencia s = new Sugerencia(unVisitante, unVisitante.getItinerario());
+		
+		assertEquals(18,s.imprimirItinerarioDetallado(unVisitante),0.001 );
+	}*/
 }

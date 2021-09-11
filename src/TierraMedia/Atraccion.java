@@ -25,6 +25,11 @@ public class Atraccion {
 	}
 	
 	
+	public void actualizarCupo() {
+		if(this.cupo > 0) {
+			cupo--;
+		}
+	}
 	
 	
 	@Override
@@ -86,7 +91,7 @@ public class Atraccion {
 
 
 
-	public int getCupo() {
+	public int getCupo() { 
 		return cupo;
 	}
 

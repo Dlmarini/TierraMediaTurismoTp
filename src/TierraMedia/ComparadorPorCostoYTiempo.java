@@ -23,7 +23,7 @@ public class ComparadorPorCostoYTiempo implements Comparator<Atraccion> {
 				comparacion = 1;
 			}
 		}
-			return comparacion;  
+			return comparacion;   
 				
 	}
 

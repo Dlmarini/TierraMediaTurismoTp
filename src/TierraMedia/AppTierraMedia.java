@@ -25,7 +25,7 @@ public class AppTierraMedia {
 			for (Atraccion a : unaSugerencia.getListaOrdenada()) {
 
 				boolean condicionVisitante = v.getMonedas() > 0 && v.getTiempo() > 0;
-				boolean condicionAtraccion = a.getCosto() <= v.getMonedas() && a.getDuracion() <= v.getTiempo();
+				boolean condicionAtraccion = a.getCosto() <= v.getMonedas() && a.getDuracion() <= v.getTiempo() && a.getCupo() > 0;
 
 				if (!v.getItinerario().contains(a) && condicionVisitante && condicionAtraccion) {
 
@@ -35,13 +35,19 @@ public class AppTierraMedia {
 					opcion = sc.nextInt();
 
 					if (opcion == 1) {
-						v.aceptarSugerencia(a);
+						v.aceptarSugerencia(a); 
+						a.actualizarCupo();
 					}
-				}
+				} 
 			}
 
 			unaSugerencia.imprimirItinerarioDetallado(v);
+			Compra unaCompra = new Compra(v);
+			archivos.escribirArchivoDeSalida(unaCompra);
+			
+			sc.close();
 		}
+		
 	}
 
 }
