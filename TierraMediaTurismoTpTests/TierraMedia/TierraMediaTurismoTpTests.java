@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class TierraMediaTurismoTpTests {
 
-	Visitante unVisitante = new Visitante("Eowyn", 10, 8, Tipo.DEGUSTACION);
+	Visitante unVisitante = new Visitante("Eowyn", 10, 8, Tipo.AVENTURA);
 	Atraccion unaAtraccion = new Atraccion("Moria", 10, 2, Tipo.AVENTURA, 6);
 
 	@Test
@@ -20,7 +20,7 @@ public class TierraMediaTurismoTpTests {
 		assertNotNull(unVisitante);
 		assertNotNull(unaAtraccion);
 	}
-
+/*
 	@Test
 	public void queLevantaCorrectamenteArchivosTest() throws FileNotFoundException {
 		
@@ -29,7 +29,7 @@ public class TierraMediaTurismoTpTests {
 		System.out.println(unArchivoL.getListaVisitantes().toString());
 		System.out.println(unArchivoL.getListaAtracciones().toString());
 	}
-	
+	*/
 
 	@Test
 	public void queGeneraSugerenciasOrdenadas() throws FileNotFoundException {
@@ -38,7 +38,7 @@ public class TierraMediaTurismoTpTests {
 		
 		System.out.println(unaSugerencia.getListaOrdenada().toString());
 	}  
-
+/*
 	@Test
 	public void queFuncionaComparador() throws FileNotFoundException  {
 		
@@ -51,7 +51,7 @@ public class TierraMediaTurismoTpTests {
 		System.out.println(listaAux.toString());
 	}
 	
-	@Test /*(expected = Exception.class)*/
+	@Test //(expected = Exception.class)
 	public void queTrataExcepcionesArchivoEnLecturaDeArchivo() throws NumberFormatException, FileNotFoundException {
 		ArchivoLyE unArchivo = new ArchivoLyE("visitantes.txt", "atracciones.txt");
 		
@@ -65,5 +65,5 @@ public class TierraMediaTurismoTpTests {
 		
 		System.out.println(unaSugerencia.getListaOrdenada().toString()); 
 	}
-	
+	*/
 }

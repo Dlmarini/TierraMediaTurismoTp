@@ -16,13 +16,17 @@ public class Visitante {
 		this.monedas = monedas;
 		this.tiempo = tiempo;
 		this.preferencia = preferencia;
-		this.itinerario = null;
+		this.itinerario = new LinkedList<Atraccion>();
 	}
 
 	
-	public void aceptarSugerencia(LinkedList<Atraccion> unaAtraccion) {
-	
+	public void aceptarSugerencia(Atraccion unaAtraccion) {
+		this.itinerario.add(unaAtraccion);
+		this.monedas -= unaAtraccion.getCosto();
+		this.tiempo -= unaAtraccion.getDuracion();
+		
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}

@@ -1,48 +1,47 @@
 package TierraMedia;
 
 import java.util.Iterator;
-import java.util.LinkedList;
+
 import java.util.Scanner;
 
 
 
-
-
-;
-
-public class AppTierraMedia { 
+public class AppTierraMedia {
 
 	public static void main(String[] args) throws Throwable {
-		
+
 		ArchivoLyE archivos = new ArchivoLyE("visitantes.txt", "atracciones.txt");
-		
+
 		Sugerencia unaSugerencia = null;
-		
-		
-		
-		for(Visitante v : archivos.getListaVisitantes()) {
+
+		for (Visitante v : archivos.getListaVisitantes()) {
+
+			unaSugerencia = new Sugerencia(v, archivos.getListaAtracciones());
+			Scanner sc = new Scanner(System.in);
+
+			int opcion = 1;
+
 			
-			 unaSugerencia = new Sugerencia(v, archivos.getListaAtracciones());
-			 
-			 LinkedList<Atraccion> listaAux = unaSugerencia.getListaOrdenada();
-			 Iterator<Atraccion> itr = listaAux.iterator();
-			 
-			 int opcion = 1;
-			 
-			 while(itr.hasNext() && v.getMonedas() > 0 && v.getTiempo() > 0 ) {
-				
-				 
-				 System.out.println("Sugerencia --> "+ itr.next().toString()+"\n" );
-				 System.out.println("Acepta sugerencia ??? (1- SI / 0- NO)");
-				 
-				
-				
-				
+			for (Atraccion a : unaSugerencia.getListaOrdenada()) {
+
+				boolean condicionVisitante = v.getMonedas() > 0 && v.getTiempo() > 0;
+				boolean condicionAtraccion = a.getCosto() <= v.getMonedas() && a.getDuracion() <= v.getTiempo();
+
+				if (!v.getItinerario().contains(a) && condicionVisitante && condicionAtraccion) {
+
+					System.out.println("\nSugerencia para " + v.getNombre() + "\n" + a.toString() + "");
+					System.out.println("Acepta sugerencia ??? (1-S / 0-N)");
+
+					opcion = sc.nextInt();
+
+					if (opcion == 1) {
+						v.aceptarSugerencia(a);
+					}
+				}
 			}
-			
+
+			unaSugerencia.imprimirItinerarioDetallado(v);
 		}
 	}
-	
-	
-	
+
 }

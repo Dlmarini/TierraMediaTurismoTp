@@ -10,7 +10,7 @@ public class ComparadorPorCostoYTiempo implements Comparator<Atraccion> {
 		int comparacion = 0;
 
 		if (a1.getCosto() > a2.getCosto()) {
-			if(a1.getDuracion() > a2.getDuracion()) {
+			if(a1.getDuracion() >= a2.getDuracion()) {
 				comparacion = -1;
 			}else if(a1.getDuracion() < a2.getDuracion()) {
 				comparacion = 1;
@@ -19,7 +19,7 @@ public class ComparadorPorCostoYTiempo implements Comparator<Atraccion> {
 		}else if(a1.getCosto() < a2.getCosto()) {
 			if(a1.getDuracion() > a2.getDuracion()) {
 				comparacion = -1;
-			}else if(a1.getDuracion() < a2.getDuracion()) {
+			}else if(a1.getDuracion() <= a2.getDuracion()) {
 				comparacion = 1;
 			}
 		}
